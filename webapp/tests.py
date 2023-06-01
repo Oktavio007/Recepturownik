@@ -6,7 +6,7 @@ from django.test import TestCase, Client
 # Create your tests here.
 from webapp.models import Category, Unit
 
-
+# Testy
 class IndexViewTestCase(TestCase):
     def setUp(self):
         self.client = Client()
