@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+ <h1>Składniki</h1>
+<a href="/addingredient" class="btn btn-primary">Dodaj</a>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nazwa</th>
+          <th>Koszt</th>
+          <th>Jednostka</th>
+            <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for ingredient in ingredients %}
+          <tr>
+            <td>{{ ingredient.name }}</td>
+            <td>{{ ingredient.cost }}</td>
+            <td>{{ ingredient.unit.name }}</td>
+              <td>
+                   <a class="btn btn-outline-info" href="editingredient/{{ingredient.id}}">Edytuj</a>
+                    <a class="btn btn-outline-danger" href="ingredients/delete/{{ingredient.id}}">Usuń</a>
+              </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+{% endblock content %}

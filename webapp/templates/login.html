@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group m-3">
+        <label>Login</label>
+        <input name="login" type="text" class="form-control" placeholder="Podaj login">
+    </div>
+    <div class="form-group m-3">
+        <label>Password</label>
+        <input name="password" type="password" class="form-control" placeholder="Hasło">
+    </div>
+     <div class="m-3">
+        <button type="submit" class="btn btn-primary">Zaloguj</button>
+     </div>
+</form>
+
+{% endblock content %}

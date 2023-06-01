@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1>Lista Kategorii</h1>
+<a href="/addcategory" class="btn btn-primary">Dodaj</a>
+<ul class="list-group">
+ {% for category in categories %}
+        <li class="list-group-item">
+            <span class="row">
+                <span class="col-10">
+                    {{ category.name }}
+                </span>
+                <span class="col-2">
+                    <a class="btn btn-outline-info" href="editcategory/{{category.id}}">Edytuj</a>
+                    <a class="btn btn-outline-danger" href="categories/delete/{{category.id}}">Usuń</a>
+                </span>
+            </span>
+        </li>
+ {% endfor %}
+</ul>
+
+{% endblock content %}

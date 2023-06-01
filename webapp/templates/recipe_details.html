@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="card">
+    <img src="{{ recipe.img }}" class="card-img-top" alt="zdjecie potrawy" style="width:300px;height:250px">
+    <div class="card-body">
+        <h1 class="card-title">{{ recipe.name }}</h1>
+        <p class="card-text"><strong>Kategoria:</strong> {{ recipe.category }} </p>
+        <p class="card-text"><strong>Opis:</strong> {{ recipe.description }} </p>
+        <p class="card-text"><strong>Dodał:</strong> {{ recipe.user.username }} </p>
+
+        <h2 class="mt-4">Składniki</h2>
+        <h4><strong>Koszt składników:</strong> {{ cost }} zł </h4>
+        <ul class="list-group">
+            {% for ingredient in ingredients %}
+            <li class="list-group-item">
+                <span class="row">
+                    <span class="col-10">
+                        <strong>{{ ingredient.ingredient.name }} </strong> - {{ ingredient.count }} {{ ingredient.unit }}
+                    </span>
+                    <span class="col-2">
+                     {% if user.is_authenticated and user == recipe.user %}
+                        <a href="/editrecipeingredient/{{ ingredient.id }}" class="btn btn-primary mt-4">Edytuj</a>
+                        <a href="/deleterecipeingredient/{{ ingredient.id }}" class="btn btn-danger mt-4">Usuń</a>
+                     {% endif %}
+                    </span>
+                </span>
+            </li>
+            {% endfor %}
+        </ul>
+        {% if user.is_authenticated and user == recipe.user %}
+            <a href="/addingredienttorecipe/{{ recipe.id }}" class="btn btn-primary mt-4">Dodaj składnik</a>
+        {% endif %}
+    </div>
+</div>
+
+
+{% endblock content %}

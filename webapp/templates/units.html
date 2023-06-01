@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1>Lista Jednostek</h1>
+<a href="/addunit" class="btn btn-primary">Dodaj</a>
+<ul class="list-group">
+ {% for unit in units %}
+        <li class="list-group-item">
+             <span class="row">
+                <span class="col-10">
+                    {{ unit.name }}
+                </span>
+                 <span class="col-2">
+                    <a class="btn btn-outline-info" href="editunit/{{unit.id}}">Edytuj</a>
+                    <a class="btn btn-outline-danger" href="units/delete/{{unit.id}}">Usuń</a>
+                 </span>
+             </span>
+        </li>
+ {% endfor %}
+</ul>
+
+{% endblock content %}

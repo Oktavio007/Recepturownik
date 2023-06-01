@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{% load static %}
+
+<h1>RECEPTUROWNIK</h1>
+<h3>Przykładowe przepisy:</h3>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+              <img src="{% static 'img/AnnaStarmach.jpg' %}" class="card-img-top" alt="Przepisy Anny Starmach" width="300" height="280">
+              <div class="card-body">
+                <h5 class="card-title">Przepisy Anny Starmach</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+              <img src="{% static 'img/michelemoran.jpg' %}" class="card-img-top" alt="Przepisy Michela Moran" width="300" height="280">
+              <div class="card-body">
+                <h5 class="card-title">Przepisy Michela Moran</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+        </div>
+        <div class="col">
+             <div class="card" style="width: 18rem;">
+              <img src="{% static 'img/mateuszgessler.jpg' %}" class="card-img-top" alt="Przepisy Mateusza Gessler" width="300" height="280">
+              <div class="card-body">
+                <h5 class="card-title">Przepisy Mateusza Gessler</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="actions">
+    <div class="add-recipe">
+
+        <a href="#" class="btn">Dodaj przepis</a>
+    </div>
+
+    <div class="calculate-food-cost">
+
+        <a href="#" class="btn">Oblicz Food Cost</a>
+    </div>
+    <div class="my-recipe">
+
+        <a href="#" class="btn"><h3>Moja książka kucharska</h3></a>
+    </div>
+</div>
+
+{% endblock content %}

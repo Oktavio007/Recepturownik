@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+ <h1>Przepisy</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nazwa</th>
+          <th>Kategoria</th>
+            <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for recipe in recipes %}
+          <tr>
+            <td>{{ recipe.name }}</td>
+            <td>{{ recipe.category }}</td>
+              <td>
+                  <a class="btn btn-outline-info" href="recipes/details/{{recipe.id}}">Zobacz przepis</a>
+              </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+{% endblock content %}
