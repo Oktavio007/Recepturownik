@@ -10,7 +10,7 @@ class CategoryForm(forms.ModelForm):
         fields = ['id', 'name']
 
     id = forms.IntegerField(widget=forms.HiddenInput(), required=False)
-    name = forms.CharField(label='Name', widget=forms.TextInput(attrs={'class': 'form-control'}))
+    name = forms.CharField(label='Kategoria', widget=forms.TextInput(attrs={'class': 'form-control'}))
 # formularz do wpisywania danych dot. jednostki miary
 class UnitForm(forms.ModelForm):
     class Meta:
@@ -18,7 +18,7 @@ class UnitForm(forms.ModelForm):
         fields = ['id', 'name']
 
     id = forms.IntegerField(widget=forms.HiddenInput(), required=False)
-    name = forms.CharField(label='Name', widget=forms.TextInput(attrs={'class': 'form-control'}))
+    name = forms.CharField(label='Nazwa jednostki miary', widget=forms.TextInput(attrs={'class': 'form-control'}))
 # formularz do wpisywania danych dot. składnika
 class IngredientForm(forms.ModelForm):
     class Meta:
@@ -30,6 +30,9 @@ class IngredientForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         # Dodaj atrybuty dla pól formularza (opcjonalne)
+        self.fields['name'].label = 'Nazwa'
+        self.fields['cost'].label = 'Koszt za jednostkę'
+        self.fields['unit'].label = 'Jednostka miary'
         self.fields['name'].widget.attrs.update({'class': 'form-control'})
         self.fields['cost'].widget.attrs.update({'class': 'form-control'})
         self.fields['unit'].widget.attrs.update({'class': 'form-control'})
@@ -43,6 +46,10 @@ class RecipeForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         # Dodaj atrybuty dla pól formularza (opcjonalne)
+        self.fields['name'].label='Nazwa'
+        self.fields['description'].label = 'Opis'
+        self.fields['category'].label = 'Kategoria'
+        self.fields['img'].label = 'Link do zdjęcia'
         self.fields['name'].widget.attrs.update({'class': 'form-control'})
         self.fields['description'].widget.attrs.update({'class': 'form-control'})
         self.fields['category'].widget.attrs.update({'class': 'form-control'})

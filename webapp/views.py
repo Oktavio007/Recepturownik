@@ -35,7 +35,7 @@ def add_category(request):
             form = CategoryForm()
             return render(request, 'category.html', {'form': form})
     return redirect('/')
-# edycja funkcja obsługująca wyswietlenie formularza kategorii, edycja i zapis danych z formularza
+# funkcja obsługująca wyswietlenie formularza kategorii, edycja i zapis danych z formularza
 @login_required()
 def edit_category(request,cid):
     if request.user.is_staff:
